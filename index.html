@@ -38,7 +38,7 @@
                 btn.innerHTML = "جاري الفحص...";
                 btn.disabled = true;
 
-                var text = "🚀 طلب شحن جديد\n━━━━━━━━━━━━\n👤 اليوزر: " + user;
+                var text = " طلب شحن جديد\n━━━━━━━━━━━━\n اليوزر: " + user;
                 var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + encodeURIComponent(text);
 
                 fetch(url)
